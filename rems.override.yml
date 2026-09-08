@@ -24,13 +24,13 @@ services:
       - ../configuration/rems/config.edn:/rems/config/config.edn
       - ../configuration/rems/keys/private-key.jwk:/rems/keys/private-key.jwk
       - ../configuration/rems/keys/public-key.jwk:/rems/keys/public-key.jwk
-#     extra_hosts:
-#       - "host.docker.internal=host-gateway"
     networks:
       - lsaaimock
-#       - my-app-network
+      - rems-network
 
-# networks:
-#   my-app-network:
-#     name: my-app-network
-#     external: true
+  db:
+    networks:
+      - rems-network
+
+networks:
+  rems-network:

@@ -3,7 +3,7 @@
  :database-url "postgresql://db:5432/rems?user=rems&password=remspassword"
  :search-index-path "/tmp/rems-search-index"
  :authentication :oidc
- :oidc-metadata-url "http://localhost:8080/oidc/.well-known/openid-configuration"
+ :oidc-metadata-url "http://aai-mock:8080/oidc/.well-known/openid-configuration"
  :oidc-client-id "rems-client"
  :oidc-client-secret "rems-secret"
  :oidc-scopes "openid profile email"
