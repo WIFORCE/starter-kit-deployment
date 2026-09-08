@@ -1,0 +1,6 @@
+[submodule "starter-kit-lsaai-mock"]
+	path = starter-kit-lsaai-mock
+	url = https://github.com/GenomicDataInfrastructure/starter-kit-lsaai-mock
+[submodule "starter-kit-rems"]
+	path = starter-kit-rems
+	url = https://github.com/GenomicDataInfrastructure/starter-kit-rems

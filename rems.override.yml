@@ -1,0 +1,36 @@
+services:
+  rems-jwk-init:
+    image: python:3.12-slim
+    working_dir: /keys
+    volumes: 
+      - ./generate_jwks.py:/keys/generate_jwks.py:ro
+      - ../configuration/rems/keys:/keys
+    entrypoint:
+      - sh
+      - -c
+      - |
+        set -e
+        if [ ! -s /keys/private-key.jwk ]; then
+          pip install "Authlib>=1.2.0"
+          python3 generate_jwks.py
+        fi
+    restart: "no"
+
+  app:
+    depends_on:
+      rems-jwk-init:
+        condition: service_completed_successfully
+    volumes:
+      - ../configuration/rems/config.edn:/rems/config/config.edn
+      - ../configuration/rems/keys/private-key.jwk:/rems/keys/private-key.jwk
+      - ../configuration/rems/keys/public-key.jwk:/rems/keys/public-key.jwk
+#     extra_hosts:
+#       - "host.docker.internal=host-gateway"
+    networks:
+      - lsaaimock
+#       - my-app-network
+
+# networks:
+#   my-app-network:
+#     name: my-app-network
+#     external: true

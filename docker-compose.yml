@@ -1,0 +1,10 @@
+include:
+  - path:
+      - starter-kit-lsaai-mock/docker-compose.yaml
+      - lsaai-mock.override.yml
+    project_directory: starter-kit-lsaai-mock
+    # env_file: 
+
+  - path:
+    - starter-kit-rems/docker-compose.yml
+    - rems.override.yml

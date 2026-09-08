@@ -1,0 +1,4 @@
+services:
+  aai-mock:
+    volumes:
+      - "../configuration/aai-mock/clients/rems-client.yaml:/etc/lsaai-mock/clients/rems-client.yaml"
