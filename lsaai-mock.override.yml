@@ -19,6 +19,8 @@ services:
     depends_on:
       aai-mock-config-init:
         condition: service_completed_successfully
+    environment:
+      - DOCKERHOST=aai-mock
     volumes:
       - aai-mock-config:/etc/lsaai-mock
 
