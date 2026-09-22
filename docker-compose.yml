@@ -8,3 +8,13 @@ include:
   - path:
     - starter-kit-rems/docker-compose.yml
     - rems.override.yml
+
+  - path:
+    - starter-kit-storage-and-interfaces/docker-compose.yml
+    - sda.override.yml
+    project_directory: starter-kit-storage-and-interfaces
+    env_file:
+      - ../configuration/sda/.env
+
+networks:
+  #for all services
